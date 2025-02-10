@@ -1,8 +1,12 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import Logout from './Logout'
+import context from './Context'
 
 function Navbar() {
+  const { isLoggedIn } = useContext(context)
   return (
+
     <div className='mb-4'>
       <div className='fluid'>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
@@ -17,18 +21,25 @@ function Navbar() {
                   <Link class="nav-link active " to='/'>Home</Link>
                 </li>
                 <li class="nav-item">
-                  <Link class="nav-link" to='/createrecipe'>Create</Link>
+                  <Link class="nav-link active" to='/createrecipe'>Save Recipe</Link>
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link" to="/Login">Login</Link>
+                {!isLoggedIn&&<li class="nav-item">
+                  <Link class="nav-link active" to="/Login">Login</Link>
+                </li>}
+                {isLoggedIn && <li class="nav-item">
+                  <Logout />
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link" to='/Registrationfrom'>Register</Link>
-                </li>
+                }
+                {
+                  !isLoggedIn && <li class="nav-item">
+                    <Link class="nav-link active" to='/Registrationfrom'>Register</Link>
+                  </li>
+                }
               </ul>
             </div>
           </div>
         </nav>
+
       </div>
     </div>
   )
