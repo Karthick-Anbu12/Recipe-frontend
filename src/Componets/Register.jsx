@@ -39,7 +39,7 @@ function Register() {
         <div className='row mt-10 '>
             <h2 className='ms-5'>Signin Form</h2>
             <div className='d-flex align-items-center p-3 mb-5 '>
-                <form className='container w-25  p-3 mb-5 shadow-lg p-3 mb-5 bg-body rounded ' onSubmit={formik.handleSubmit}>
+                <form className='container w-50  p-3 mb-5 shadow-lg p-3 mb-5 bg-body rounded ' onSubmit={formik.handleSubmit}>
                     <div class="form-group mt-10">
                         <label for="exampleInputEmail1">Email address</label>
                         <input type="email" className={`form-control  ${formik.errors.email && 'is-invalid'}`} name='email' aria-describedby="emailHelp" placeholder="Enter email" value={formik.values.email} onChange={formik.handleChange} />
